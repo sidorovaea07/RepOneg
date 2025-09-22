@@ -1,5 +1,21 @@
 #include "StrFunc.h"
 
+int AlphasCheck (char * s)
+{
+    char * save_ptr = s;
+    int alphas = 0;
+    while (*s != '\n' && *s != '\0') {
+        if (isalpha(*s))
+            alphas++;
+        s++;
+    }
+    s = save_ptr;
+    if (!alphas)
+        return 0;
+    else
+        return 1;
+}
+
 int myputs (char *s)
 {
     if (!s)
@@ -142,6 +158,39 @@ int mygetline(char **lineptr, size_t *n, FILE *fp)
     
     return EOF;
 
+}
+
+int mystrcmp(char * s1, char * s2)
+{
+    char * save_ptr1 = s1;
+    char * save_ptr2 = s2;
+
+    while (!isalpha(*s1)) {s1++;}
+    while (!isalpha(*s2)) {s2++;}
+    while (*s1 != '\n' && *s2 != '\n')
+    {
+        if (!isalpha(*s1)) {
+            s1++;
+            break;
+        }
+        if (!isalpha(*s2)) {
+            s2++;
+            break;
+        }
+        tolower(*s1);
+        tolower(*s2);
+        if (*s1 < *s2)
+            return -1;
+        else if (*s1 > *s2)
+            return 1;
+        else {
+            s1++;
+            s2++;
+        }
+    }
+    s1 = save_ptr1;
+    s2 = save_ptr2;
+    return 0;
 }
 
 int myrevstrcmp(const char * s1, const char * s2)

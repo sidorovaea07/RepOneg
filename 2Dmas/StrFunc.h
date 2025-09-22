@@ -18,8 +18,9 @@
 #define PRP(x) printf(BCOLOR "%p\n" WCOLOR, (x))
 #define PRD(x) printf(BCOLOR "%d\n" WCOLOR, (x))
 #define PRTF(x) printf(FCOLOR "print to file returned %d\n" WCOLOR, (x))
-#define PRS(x) printf(FCOLOR "my sort returned %d\n" WCOLOR, (x))
 
+int AlphasCheck (char * s);
+int mystrcmp(char * s1, char * s2);
 int myputs (char *s);
 int myrevstrcmp(const char * s1, const char * s2);
 char* mystrchr (char * s, int c);

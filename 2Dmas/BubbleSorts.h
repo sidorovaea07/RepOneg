@@ -4,7 +4,7 @@
 #include "strfunc.h"
 
 int SwitchStr(char ** s1, char ** s2);
-int BubbleSort(char **ptrs, int linescnt);
-int RevBubbleSort(char **ptrs, int linescnt);
+char** MySort(char **ptrs, int linescnt);
+char** MyRevSort(char **ptrs, int linescnt);
 
 #endif
