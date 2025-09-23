@@ -1,10 +1,10 @@
 #ifndef bubblesorts
 #define bubblesorts
 
-#include "strfunc.h"
+#include "StrFunc.h"
 
-int SwitchStr(char ** s1, char ** s2);
-char** MySort(char **ptrs, int linescnt);
-char** MyRevSort(char **ptrs, int linescnt);
+int Switch(struct ptrs* p1, struct ptrs* p2);
+struct ptrs* MySort(struct ptrs *ptrsarr, int linescnt);
+struct ptrs* MyRevSort(struct ptrs *ptrsarr, int linescnt);
 
 #endif

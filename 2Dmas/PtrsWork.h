@@ -1,8 +1,9 @@
 #ifndef ptrswork
 #define ptrswork
+#include "StrFunc.h"
 
-char ** CreatePtrArr(int linescnt, char * buff);
+ptrs* CreatePtrArr(int linescnt, char * buff);
 int LinesCnt(char * buff);
-int PtrsPrint(char ** ptrs, int linescnt);
+int PtrsPrint(ptrs* ptrsarr, int linescnt);
 
 #endif

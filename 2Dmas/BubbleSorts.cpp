@@ -1,51 +1,55 @@
 #include "BubbleSorts.h"
 
-int SwitchStr(char ** s1, char ** s2)
+int Switch(ptrs *p1, ptrs *p2)
 {
-    char * temp = *s1;
-    *s1 = *s2;
-    *s2 = temp;
+    char* temp = p1 -> val;
+    p1 -> val = p2 -> val;
+    p2 -> val = temp;
+
+    int t = p1 -> len;
+    p1 -> len = p2 -> len;
+    p2 -> len = t;
     return 0;
 }
 
-char ** MySort(char **ptrs, int linescnt)
+ptrs* MySort(ptrs *ptrsarr, int linescnt)
 {
-    char ** save_ptr = ptrs;
+    ptrs* save_ptr = ptrsarr;
     int iter = 0;
     do {
         iter = 0;
         for (int i = 0; i < linescnt - 1; i++) {
-            if (!AlphasCheck(ptrs[i + 1])) {      
-                SwitchStr(&ptrs[i], &ptrs[i + 1]);
+            if (!AlphasCheck(ptrsarr[i + 1].val)) {      
+                Switch(&ptrsarr[i], &ptrsarr[i + 1]);
                 iter++;
             }
-            else if (mystrcmp(ptrs[i], ptrs[i + 1]) > 0) {
-                SwitchStr(&ptrs[i], &ptrs[i + 1]);
+            else if (mystrcmp(ptrsarr[i].val, ptrsarr[i + 1].val) > 0) {
+                Switch(&ptrsarr[i], &ptrsarr[i + 1]);
                 iter++;
                 //PRP(&iter);
             }
         }   
     } while (iter != 0);
-    ptrs = save_ptr;
+    ptrsarr = save_ptr;
     //PRP(&iter);
-    return ptrs;
+    return ptrsarr;
 }
 
-char ** MyRevSort(char **ptrs, int linescnt)
+ptrs* MyRevSort(ptrs* ptrsarr, int linescnt)
 {
-    char ** save_ptr = ptrs;
+    ptrs* save_ptr = ptrsarr;
     int iter = 0;
     do {
         iter = 0;
         for (int i = 0; i < linescnt - 1; i++) {
-            if (myrevstrcmp(ptrs[i], ptrs[i + 1]) > 0) {
-                SwitchStr(&ptrs[i], &ptrs[i + 1]);
+            if (myrevstrcmp(ptrsarr[i].val, ptrsarr[i + 1].val) > 0) {
+                Switch(&ptrsarr[i], &ptrsarr[i + 1]);
                 iter++;
                 //PRP(&iter);
             }
         }    
     } while (iter != 0);
-    ptrs = save_ptr;
+    ptrsarr = save_ptr;
     //PRP(&iter);
-    return ptrs;
+    return ptrsarr;
 }

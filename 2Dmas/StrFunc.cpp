@@ -1,21 +1,5 @@
 #include "StrFunc.h"
 
-int AlphasCheck (char * s)
-{
-    char * save_ptr = s;
-    int alphas = 0;
-    while (*s != '\n' && *s != '\0') {
-        if (isalpha(*s))
-            alphas++;
-        s++;
-    }
-    s = save_ptr;
-    if (!alphas)
-        return 0;
-    else
-        return 1;
-}
-
 int myputs (char *s)
 {
     if (!s)
@@ -177,11 +161,9 @@ int mystrcmp(char * s1, char * s2)
             s2++;
             break;
         }
-        tolower(*s1);
-        tolower(*s2);
-        if (*s1 < *s2)
+        if (tolower(*s1) < tolower(*s2))
             return -1;
-        else if (*s1 > *s2)
+        else if (tolower(*s1) > tolower(*s2))
             return 1;
         else {
             s1++;
@@ -206,9 +188,9 @@ int myrevstrcmp(const char * s1, const char * s2)
         return 1;
     while (s1 != save_ptr1 && s2 != save_ptr2)
     {
-        if (*s1 < *s2)
+        if (tolower(*s1) < tolower(*s2))
             return -1;
-        else if (*s1 > *s2)
+        else if (tolower(*s1) > tolower(*s2))
             return 1;
         else {
             s1--;

@@ -19,6 +19,20 @@
 #define PRD(x) printf(BCOLOR "%d\n" WCOLOR, (x))
 #define PRTF(x) printf(FCOLOR "print to file returned %d\n" WCOLOR, (x))
 
+struct ptrs {
+    char *val;
+    int len;
+};
+struct Data {
+    const char * input;
+    struct ptrs* prim;
+    struct ptrs* sorted;
+    struct ptrs* revsorted;
+    int linescnt;
+    char *buff;
+    int size;
+};
+int MyLen(char* s1, char* s2);
 int AlphasCheck (char * s);
 int mystrcmp(char * s1, char * s2);
 int myputs (char *s);

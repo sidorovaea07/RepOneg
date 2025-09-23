@@ -3,7 +3,8 @@
 
 #include "strfunc.h"
 
+
 char * OpenAndReadFile(const char* myfile, int * ReadSize);
-int PrintToFile(char **ptrs, int linescnt);
+int PrintToFile(ptrs* ptrsarr, int linescnt);
 
 #endif
